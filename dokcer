@@ -1,0 +1,12 @@
+#!/bin/bash 
+#
+# --name specify a name for container 
+# --restart == unless-stopped means run even after restart unless you manually stop the container 
+# -p 8090:8080 means container start work in 8080 but host work with 8090 
+# -v couple volume host:container together
+# --http-port=-1 means there's no connection on http protocol
+# --httpsPort=8080 work on 8080 port for https
+# --httpsKeyStore=/direcroty is used to specify key https that you make in advanced
+# --httpsKeyStorePassword=[pass] use password which you created cerification.key
+
+docker run --name jenkins --restart=unless-stopped -p 8080:8080 -v [/host_directory]:/var/jenkins_home jenkins/jenkins --httpPort=-1 --httpsPort=[port value] --httpsKeyStore=/var/jenkins_home/key/jenkins.jks --httpsKeyStorePassword=[password value]
